@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/customer_purchase.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap', rel='stylesheet')
+    script(src='/javascripts/jquery.js', type='module' defer)
+    script(src='/javascripts/app.js', type='module' defer)
+    title Customer Purchase
+  body
+    #container
+        #cartSide
+            if customer.customerInfo.firstName != 'Anonymous'
+                h1 #{customer.customerInfo.firstName} #{customer.customerInfo.lastName}
+                h3 Age: #{customer.customerInfo.age}
+            else
+                h2 #{customer.customerInfo.firstName} Customer
+            h3 Purchases
+            #tableContainer
+                table#purchaseTable
+                    colgroup
+                        col(width='40%')
+                        col(width='20%')
+                        col(width='20%')
+                        col(width='20%')
+                    tr
+                        th Item Name
+                        th Quantity
+                        th Price
+                        th
+                    tfoot
+                    tr
+                        th
+                        th Total: 
+                        th#totalPrice
+                        th
+            button#confirmCart Enter Purchase
+        .tab
+            button#passesTab.tabLinks.active Passes
+            button#membershipsTab.tabLinks Memberships
+            button#foodTab.tabLinks Food
+            button#gearTab.tabLinks Gear
+        #tabSide
+            #passes.tabContent: each passItem, i in passItems
+                form#item(action='/customer/purchase/' + customer._id method='post')
+                    h3 #{passItem.itemName}   
+                    h3 $#{passItem.itemPrice}
+                    input.hidden(name='itemID' value='' + passItem._id)
+                    input.hidden(name='itemName' value='' + passItem.itemName)
+                    input.hidden(name='itemPrice' value='' + passItem.itemPrice)
+                    input.hidden(name='itemType' value='' + passItem.itemType)
+                    input(class='type' + passItem.itemType type='submit' value='Add to cart')
+            #memberships.tabContent
+            #food.tabContent
+            #gear.tabContent

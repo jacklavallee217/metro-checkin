@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap', rel='stylesheet')
+    script(src='/javascripts/jquery.js', type='module' defer)
+    script(src='/javascripts/app.js', type='module' defer)
+    title Check In System
+  body 
+    #torso
+      #checkinSide
+        h1 MetroRock Essex
+        img#headerLogo(src='images/metrorock-logo.png')
+        if errorMessage != ''
+            p#errorMessage(style='display:' + display) #{errorMessage}
+        h2 Search Customer
+        form#searchForm(action='/search', method='post')
+          input#firstSearch.inputs(name='firstSearch', placeholder='First Name')
+          input#lastSearch.inputs(name='lastSearch', placeholder='Last Name')
+          button#nameSearch.inputs(name='nameSearch', type='submit') Search
+        button#onlineWaivers(name='onlineWaivers', type='button') Online Waivers
+        a(href='/anonymous/purchase/') 
+          button#purchaseButton(name='purchaseButton', type='button') Anonymous Purchase
+      #customerSide
+        h2#recCustTitle Recent Customers
+        #recCustDiv: each customer, i in customers 
+          if customer.customerInfo.firstName != 'Anonymous'
+            a.cust_link(name='cust_link', href='/customer/' + customer._id)
+              .cust(class='priv' + customer.customerInfo.privilege)
+                .cust_prof
+                  h2 #{customer.customerInfo.firstName} #{customer.customerInfo.lastName}
+                  h3 Age: #{customer.customerInfo.age}
+                  h3 Membership: #{customer.customerInfo.membership}
+                  h3 Privilege: #{customer.customerInfo.privilege}
+                .cust_image
+                  img#img(src='')
+    

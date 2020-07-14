@@ -1,0 +1,168 @@
+:root {
+    --lead-color: #5ec97a;
+    --lead-color-hover: #3cb35d;
+  
+    --top-color: #549CAD;
+    --top-color-hover: #358294;
+  
+    --bould-color: #F09F50;
+    --bould-color-hover: #DC8229;
+
+    --none-color: #F06354;
+    --none-color-hover: #DC3E29;
+  }
+  
+  /*////////////////////////////*/
+  
+  * {
+    font-family: 'Raleway', sans-serif;
+    transition: .15s ease-in;
+  }
+  
+  html, body {
+    margin: auto 0;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  button, input[type=submit] {
+    cursor: pointer;
+    background-color: white;
+    border: 1px #999999 solid;
+    border-radius: 12px;
+  }
+
+  button:hover, input[type=submit]:hover {
+    border-color: #555555;
+  }
+  
+  button:active, input[type=submit]:active {
+    transform: translateY(4px);
+    outline: none;
+  }
+  
+  button:after, button:focus, input[type=submit]:after, input[type=submit]:focus{
+    outline: none;
+  }      
+  
+      /**********/
+  
+      #headerLogo {
+        margin: 24px auto;
+        display: block;
+        width: 150px;
+        height: 150px;
+      }
+  
+      h1 {
+        margin: 12px auto;
+      }
+  
+      h2 {
+        margin: 6px auto;
+      }
+  
+      h1, h2 {
+        text-align: center;
+        text-decoration: underline;
+      }
+
+      /***** Recent Customer Buttons *****/
+
+      .cust, #waiver {
+        border-radius: 6px;
+        display: flex;
+        border: 2px solid white;
+        transition: .15s;
+        background-color: var(--lead-color);
+      }
+      
+      #waiver * {
+        text-align: center;
+      }   
+
+      .privLead, .Lead, .privLead.active {
+        background-color: var(--lead-color);
+      }
+      
+      .privLead:hover, .privLead.active:hover {
+        background-color: var(--lead-color-hover);
+      }
+      
+      .privToproping, .Toproping, .privToproping.active {
+        background-color: var(--top-color);
+      }
+      
+      .privToproping:hover, .privToproping.active:hover {
+        background-color: var(--top-color-hover);
+      }
+      
+      .privBouldering, .Bouldering, .privBouldering.active {
+        background-color: var(--bould-color);
+      }
+      
+      .privBouldering:hover, .privBouldering.active:hover {
+        background-color: var(--bould-color-hover);
+      }
+      
+      .privNone, .None, .privNone.active {
+        background-color: var(--none-color);
+      }
+      
+      .privNone:hover, .privNone.active:hover {
+        background-color: var(--none-color-hover);
+      }
+      
+      .cust_link, .waiver_link {
+        border-radius: 6px;
+      }
+      
+      .cust *, #waiver * {
+        color: white;
+      }
+      
+      .cust:hover, #waiver:hover {
+        cursor: pointer;
+      }
+      
+      .cust_prof, .waiver_prof {
+        display: block;
+        flex: 4;
+        width: 100%;
+        margin: 6px;
+        padding: 6px;
+      }
+      
+      .cust_prof h2, .waiver_prof h2 {
+        margin: 2px auto;
+        flex: 1;
+      }
+      
+      .cust_prof h3, .waiver_prof h3 {
+        margin: 0px auto;
+        text-decoration: none;
+      }
+      
+      .cust_image, .waiver_image {
+        flex: 2;
+        margin: 6px;
+        padding: 6px;
+        background-color: white;
+        border-radius: 6px;
+      }
+      
+      #img {
+        width: 100%;
+        height: 100%;
+        min-width: 100px;
+        min-height: 100px;
+        border-radius: 6px;
+      }
+      
+      .cust_prof img, .waiver_prof img {
+        flex: 1;
+        border: 2px solid white;
+        border-radius: 4px;
+      }
+      

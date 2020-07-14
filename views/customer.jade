@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/customer_profile.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap', rel='stylesheet')
+    script(src='/javascripts/jquery.js', type='module' defer)
+    script(src='/javascripts/app.js', type='module' defer)
+    title Customer Profile
+  body
+    div(class='customerHeader ' + customer.customerInfo.privilege) 
+      #headerContainer
+        #headerInfo
+          h1#nameTitle #{customer.customerInfo.firstName} #{customer.customerInfo.lastName}
+          h2#ageTitle Age: #{customer.customerInfo.age}
+          if customer.customerInfo.note != null
+            p#comment(style='display: block') #{customer.customerInfo.note}
+        #imageContainer
+          img#customerImage(src='')
+          button#addImage Add an Image
+    .customerOptions
+      .optionsMenu
+        button(id='editAccount' class='optionButtons priv' + customer.customerInfo.privilege + ' active' name='Edit Account', type='button') Edit Account
+        button(id='purchases' class='optionButtons priv' + customer.customerInfo.privilege name='Purchases', type='button') Purchases
+        button(id='deleteAccount' class='optionButtons priv' + customer.customerInfo.privilege name='Delete Account', type='button') Delete Account
+      #editAccountDiv
+        form#admitCustomer(action='/customer/' + customer._id + '/customerAdmitted' method='post') 
+          input#admitSubmit(type='submit' value='Admit Customer') 
+        form#editAccountForm(action='/customer/' + customer._id method='post')
+          #climbingDetails
+            h1#membershipTitle Membership: 
+            h1#membershipStatus #{customer.customerInfo.membership}
+            h1#privilegeTitle Privilege: 
+            select#privilegeStatus(name='privilege')
+              option(value='' + customer.customerInfo.privilege, name='' + customer.customerInfo.privilege, selected) #{customer.customerInfo.privilege}
+              option(value='None', name='None') None
+              option(value='Bouldering', name='Bouldering') Bouldering
+              option(value='Toproping', name='Toproping') Toproping
+              option(value='Lead', name='Lead') Lead
+          textarea#commentEntry(rows='1', cols='20', name='notes', placeholder='Enter comment here...')
+          input#infoSubmit(type='submit')
+        .infoButtons  
+          button#personalInfo(name='Personal Info', type='button') Edit Personal Information
+      #purchasesDiv
+        a(href='/customer/purchase/' + customer._id)
+          button#enterPurchases(name='Enter Purchases', type='button') Enter Purchases
+        .infoButtons
+          button#purchaseHistory(name='Purchase History', type='button') Purchase History
+          button#enterCardInfo(name='Enter Card Info', type='button') Enter Card Information
+      #deleteAccountDiv
+        button#deleteAccountButton(name='Delete Account', type='button') Delete Account
+        p#accountDisclaimer WARNING: deleting account will result in a loss of all of this customer's data.

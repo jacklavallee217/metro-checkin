@@ -1,0 +1,57 @@
+doctype html
+html(lang='en')
+  head
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/waiver.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap', rel='stylesheet')
+    script(src='/javascripts/jquery.js', type='module' defer)
+    script(src='/javascripts/app.js', type='module' defer)
+    title Waiver Sign Up
+  body#waiver-body
+    if newWaiver != null
+      h3#waiver-message(style='display:' + display) #{newWaiver.customerInfo.firstName} #{newWaiver.customerInfo.lastName} has submitted a waiver
+    .waiver-container#waiver-home
+      img#headerLogo(src='images/metrorock-logo.png')
+      h1 Welcome to MetroROCK
+      p To start enjoying MetroROCK activities you must fill out a waiver for each participant. After finishing waivers for everyone, please go to the front to check-in.
+      p Be safe and enjoy your visit!
+      button#waiver-start MetroROCK Waiver
+
+    .waiver-container#waiver-form
+      h1 MetroROCK Waiver Form
+      img#headerLogo(src='images/metrorock-logo.png')
+      form(action='/waiver' method='post')
+        .basicWaiver.waiverDiv
+          h2 Basic Information
+          .nameWaiver.flexWaiver
+            p
+              input#wFirstName(placeholder='First Name...', name='wFirstName')
+            p
+              input#wLastName(placeholder='Last Name...', name='wLastName')
+          .dateWaiver.flexWaiver
+            p
+              input(placeholder='Age...', name='wAge')
+        .emailWaiver.waiverDiv
+          h2 Participants Email
+          .email1Waiver.flexWaiver
+            p
+              input(placeholder='Enter Email Address...', name='wEmail')
+        .emergencyWaiver.waiverDiv
+          h2 Emergency Contact
+          .emNameWaiver.flexWaiver
+            p
+              input(placeholder="Emergency Contact's Name...", name='wEmergencyName')
+          .emNumberWaiver.flexWaiver
+            p
+              input(placeholder="Emergency Contact's Number...", name='wEmergencyNumber')
+        .termsWaiver.waiverDiv
+          h2 Terms and Agreements
+          .flexWaiver
+            p.terms
+              | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum, maxime fuga eligendi, perspiciatis non placeat ipsam laboriosam, delectus ea enim repellendus. Aperiam maxime, nihil libero quibusdam ea, officia vitae minus sint vel eligendi doloribus quisquam nobis quas cupiditate ratione velit! Pariatur magni nemo expedita reiciendis, vero a blanditiis dicta dignissimos? Excepturi corrupti iure distinctio voluptatem qui ut, doloremque reprehenderit exercitationem beatae, quo tempora veniam natus temporibus assumenda maxime eius soluta provident illum. Assumenda voluptates, magnam dicta eligendi ab repudiandae rem accusamus maiores impedit, dolores dolorum? Natus excepturi minima, et inventore impedit nesciunt adipisci quis blanditiis quam ipsam officia numquam tempore delectus amet nihil sunt saepe consectetur tempora consequuntur eaque eveniet fugit expedita necessitatibus? Error doloremque delectus quae nisi? Accusantium ipsa eos ullam illum mollitia neque ex velit. Ipsam reiciendis suscipit corrupti dolorem laudantium fugit nisi accusantium sapiente quis eum facilis soluta ab nobis eos, ea iure consequuntur rerum temporibus, nam in. Omnis corporis illum officia? Rem harum corrupti molestiae, debitis incidunt veritatis aut placeat optio sit et nostrum sapiente qui dolor suscipit, beatae eius cupiditate distinctio inventore explicabo dolore repellendus magni. Repellendus facere, suscipit dolore fugiat inventore vero porro ea cum repudiandae quisquam fugit officia quia eius expedita tempora accusantium exercitationem! Nesciunt esse nemo, porro ullam officia sit ipsa eos corporis, omnis, incidunt delectus suscipit est error. Velit, dolor nemo? Eos esse laborum ex earum dolore veniam voluptatibus incidunt nisi non obcaecati, praesentium repellendus sint iste minima veritatis dolorum, explicabo animi voluptate officiis nam officia consectetur et! Maiores eligendi quos culpa, praesentium architecto atque suscipit quis molestiae porro eum asperiores minima reprehenderit iure, officiis inventore, quam accusamus mollitia quae libero. Optio blanditiis corporis temporibus minima eaque possimus, maxime odio rem voluptas pariatur voluptatem sapiente autem minus consequuntur culpa soluta iure libero recusandae natus rerum. Maxime ea at totam quod. Corporis nulla error adipisci aspernatur nesciunt debitis aperiam qui eos ex! Possimus saepe eum laboriosam! Tenetur obcaecati laboriosam dolores assumenda voluptates et laudantium aut ut unde quis quos soluta, explicabo, dolore deleniti nisi dicta exercitationem autem eligendi. Quia odit est corporis fugiat neque veniam suscipit in modi. Voluptates cupiditate nobis velit quidem iste possimus numquam minima neque esse architecto, id nulla sint temporibus molestiae aut eos beatae officia incidunt impedit laborum? Optio, ad! Non qui impedit nulla sapiente ipsam neque repellat consequuntur provident enim ex optio adipisci facilis laboriosam fugiat, nobis perspiciatis fuga odit voluptate excepturi! Velit a, voluptatum rem deserunt similique nulla incidunt. Fugiat quod magnam doloremque fugit quam doloribus tempore nisi possimus velit sunt autem ipsa officia exercitationem nihil, aperiam, libero itaque quis repellendus nobis, ratione eligendi similique vel? Hic deleniti debitis nemo beatae, ea laudantium assumenda aliquid eaque quia, corporis deserunt non cupiditate amet? Enim quod voluptas magni ratione architecto id cupiditate, atque nihil ab deserunt quam natus suscipit eaque, porro possimus cumque ipsam! Atque, impedit repellendus sunt natus distinctio odio deleniti, at adipisci esse voluptate ex sed nemo. Veritatis ex distinctio illo id dolores fuga dignissimos porro assumenda ipsa error repellat suscipit facilis tempore saepe aliquid sequi architecto, adipisci iste blanditiis inventore minima provident nisi dolore recusandae? Voluptatem, distinctio deleniti deserunt similique quasi nostrum ratione aut! Hic ratione nulla sapiente architecto porro, ea quisquam atque alias quo distinctio consequatur qui quas fuga quos, sunt vitae quia, dolore voluptas sint vero amet quam minus error? Odio, laboriosam totam quis in voluptatibus veniam est laborum cumque soluta, doloremque nesciunt qui minus explicabo? Voluptas delectus fugit cupiditate ratione voluptates accusantium necessitatibus sunt eius, dignissimos quam maiores rerum veniam architecto sit accusamus voluptate dolore, repudiandae, esse aspernatur! Nisi culpa voluptatibus impedit nesciunt, tempora quam rerum praesentium ex repudiandae vero ratione deleniti cum quasi provident ipsam perferendis? Hic voluptatum maiores, id alias eligendi nesciunt sint rerum quidem. Asperiores culpa sed praesentium at sit dolorem quae dolorum necessitatibus reprehenderit est eius, fugit ab ipsum esse perferendis soluta fuga architecto quia quam numquam eveniet dolore voluptates voluptatem aut. Sit adipisci iusto impedit explicabo aliquid velit est, perspiciatis iure repellat sint unde id dolorem eligendi. Quibusdam, vitae sit illo ad dolorem qui voluptates natus consectetur molestias harum, earum laboriosam. Nam labore reprehenderit saepe! Mollitia atque repellat facere earum, impedit blanditiis ratione quibusdam fugiat quos velit commodi tempore pariatur aut odit sed enim illum ipsum iure dignissimos accusantium molestiae suscipit natus. Quasi totam placeat quam aliquam dignissimos? Earum animi possimus vel! Maiores fuga illum molestias cupiditate nihil quaerat temporibus debitis ad quasi in, blanditiis voluptatum hic culpa, atque nulla recusandae similique. Qui, quos odio recusandae doloribus mollitia praesentium, maiores pariatur architecto iste sunt doloremque, distinctio ab sapiente facere vero repellendus delectus non ullam quisquam perspiciatis cum nobis blanditiis aut! Porro doloremque corrupti, et velit culpa quidem tenetur autem obcaecati natus accusantium placeat quo reiciendis ducimus expedita amet nostrum? Ab incidunt voluptas cupiditate excepturi, nulla consequuntur adipisci maxime minus modi amet ducimus id obcaecati molestias. Autem exercitationem expedita a fugit doloremque iusto eum quod dignissimos dolorum deserunt itaque recusandae nihil impedit, dolorem corporis unde amet voluptatem atque molestiae iure esse pariatur delectus. Ea quisquam quam optio harum expedita, delectus blanditiis quibusdam voluptatibus facilis ipsam quidem, assumenda voluptates commodi eius adipisci, maiores quasi earum. Omnis vitae exercitationem facere, minus sint obcaecati, fugiat cum aliquid magnam at officiis reprehenderit quidem necessitatibus praesentium velit doloremque natus laudantium ipsam dignissimos dicta commodi earum saepe voluptas. Quae, eos rem, nobis, in minus sequi voluptas eveniet esse vel a assumenda culpa doloribus fuga perferendis tempore voluptatem. Quas distinctio ea quia labore quisquam dicta, expedita beatae laborum in sunt sit ducimus? Quisquam sunt eligendi nemo eum debitis, sequi cum dolores recusandae ut. Tempora ex suscipit, atque, saepe totam architecto error sunt sapiente optio dolorem aliquam doloremque eius et consectetur laborum tenetur repellat delectus, placeat itaque. Eius consequatur debitis, in est ratione ea magnam. Autem eos amet, quisquam cum facere temporibus voluptates similique veritatis soluta in obcaecati iusto error aspernatur totam ipsa. Veniam molestiae consequuntur corrupti repellat, excepturi placeat, ipsum repellendus quidem quibusdam accusantium impedit non recusandae obcaecati dolore inventore enim aliquid qui repudiandae rerum, ad velit. Provident eaque magni, ullam consectetur nisi maxime maiores!
+          .flexWaiver
+            p
+              label I agree to the terms and agreements
+              input#agreementCheck(type='checkbox', name='agreement', value='agreed')
+          input#waiver-submit(type='submit', value='Submit' disabled)

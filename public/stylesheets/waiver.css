@@ -1,0 +1,136 @@
+html, body {
+    overflow: none;
+}
+
+#waiver-message {
+    display: none;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    background: var(--lead-color);
+    color: white;
+    margin: 0 auto;
+    padding: 8px;
+    width: 100%;
+}
+
+.waiver-container {
+    width: 60%;
+    height: 100%;
+    display: block;
+    margin: 48px auto;
+}
+
+.waiver-container h1 {
+    text-align: center;
+}
+
+.waiver-container h1, .waiver-container p {
+    color: black;
+}
+
+#waiver-form {
+    display: none;
+}
+
+#waiver-start {
+    margin: 32px auto;
+    display: block;
+    width: 100%;
+    height: 60px;
+    font-size: 1.5em;
+    transition: .15s;
+}
+
+#waiver-start-link {
+    text-decoration: none;
+}
+
+#waiver-start:hover {
+    background-color: var(--lead-color-hover);
+    text-decoration: none;
+    color: white;
+}
+
+.waiverDiv {
+    background-color: #ccc;
+    margin: 24px auto;
+    padding: 12px;
+}
+
+.flexWaiver {
+    display: flex;
+}
+
+.flexWaiver p {
+    margin: 8px 16px;
+    flex: 1;
+    display: block;
+}
+
+.flexWaiver p input {
+    margin: 0 auto;
+    padding: 4px;
+    display: block;
+    line-height: 2;
+    font-size: 1.5em;
+    border-radius: 6px;
+}
+
+.flexWaiver p select {
+    text-align: center;
+    margin: 4px auto;
+    display: block;
+    line-height: 2;
+    border-radius: 6px;
+}
+
+input[name=wStreet] {
+    width: 60%;
+}
+
+#wGender {
+    font-size: 1.5em;
+}
+
+#wState {
+    font-size: 1.2em;
+}
+
+#wCountry {
+    font-size: 1em;
+}
+
+.flexWaiver p label {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.wDate {
+    color: #777;
+}
+
+input[name=wEmail1], input[name=wEmail2], input[name=wEmName], input[name=wEmNumber] {
+    width: 70%;
+}
+
+.terms {
+    background-color: white;
+    padding: 8px;
+    height: 150px;
+    border-radius: 6px;
+    overflow-y: scroll;
+}
+
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    margin: 8px;
+}
+
+input[type=submit] {
+    bottom: 0;
+    width: 100%;
+    font-size: 2.5em;
+}

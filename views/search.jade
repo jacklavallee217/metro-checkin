@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='stylesheet', href='/stylesheets/customer_profile.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap', rel='stylesheet')
+    script(src='/javascripts/jquery.js', type='module' defer)
+    script(src='/javascripts/app.js', type='module' defer)
+    title Customer Search
+  body 
+    #search
+      h1 Search Results
+      #searchResults: each customer, i in customers
+        a.cust_link(name='cust_link', href='/customer/' + customer._id)
+          .cust(class='cust priv' + customer.customerInfo.privilege)
+            .cust_prof
+              h2 #{customer.customerInfo.firstName} #{customer.customerInfo.lastName}
+              h3 Age: #{customer.customerInfo.age}
+              h3 Membership: #{customer.customerInfo.membership}
+              h3 Privilege: #{customer.customerInfo.privilege}
+            .cust_image
+              img#img(src='')
+      a(href='/')
+        button.returnButton Return to Search Screen

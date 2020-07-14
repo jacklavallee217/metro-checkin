@@ -1,0 +1,237 @@
+html {
+    overflow: hidden;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#infoSide {
+    flex: 1;
+}
+
+#cartSide {
+    position: relative;
+}
+
+#cartSide h1, #cartSide h2, #cartSide h3 {
+    text-align: left;
+    text-decoration: none;
+    margin: 20px;
+}
+
+#tabSide {
+    display: flex;
+}
+
+#cartSide, #tabSide {
+    flex: 2;
+}
+
+#infoSide {
+    border-right: 2px solid #dddddd;
+}
+
+#tableContainer {
+    overflow-y: scroll;
+    height: 380px; 
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    margin: 8px auto;
+}
+
+th, td {
+    text-align: left;
+    border-top: 2px solid #dddddd;
+}
+
+td button {
+    height: 100%;
+    width: 100%;
+    box-shadow: none;
+}
+
+tfoot tr th {
+    border-top: 2px solid #bbbbbb;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.tabLinks {
+    display: block;
+    flex: 1;
+    border: 8px solid white;
+    border-radius: 0;
+}
+
+.tabLinks.active {
+    color: white;
+}
+
+.tabLinks:active {
+    transform: none;
+}
+
+.tabContent {
+    flex: 1;
+    border: 8px solid white;
+    overflow-y: scroll;
+}
+
+.tabContent h1 {
+    margin: 24px auto;
+    color: white;
+    text-decoration: none;
+}
+
+#passes {
+    background-color: var(--lead-color-hover);
+    border-color: var(--lead-color);
+}
+
+#memberships {
+    background-color: var(--top-color-hover);
+    border-color: var(--top-color);
+}
+
+#food {
+    background-color: var(--bould-color-hover);
+    border-color: var(--bould-color);
+}
+
+#gear {
+    background-color: var(--none-color-hover);
+    border-color: var(--none-color);
+}
+
+#passesTab.active {
+    display: block;
+    border: 8px solid var(--lead-color);
+    background-color: var(--lead-color-hover);
+}
+
+#passesTab:hover {
+    background-color: var(--lead-color);
+    color: white;
+    border-color: var(--lead-color-hover);
+}
+
+#membershipsTab.active {
+    border: 8px solid var(--top-color);
+    background-color: var(--top-color-hover);
+}
+
+#membershipsTab:hover {
+    background-color: var(--top-color);
+    color: white;
+    border-color: var(--top-color-hover);
+}
+
+#foodTab.active {
+    border: 8px solid var(--bould-color);
+    background-color: var(--bould-color-hover);
+}
+
+#foodTab:hover {
+    background-color: var(--bould-color);
+    color: white;
+    border-color: var(--bould-color-hover);
+}
+
+#gearTab.active {
+    border: 8px solid var(--none-color);
+    background-color: var(--none-color-hover);
+}
+
+#gearTab:hover {
+    background-color: var(--none-color);
+    color: white;
+    border-color: var(--none-color-hover);
+}
+
+.tabContent {
+    padding: 24px;
+    overflow-y: scroll;
+}
+
+.tabContent button {
+    margin: 12px auto;
+    display: block;
+    height: 40px;
+    width: 50%;
+    font-size: 1em;
+}
+
+#memberships, #food, #gear {
+    display: none;
+}
+
+#passes {
+    display: flex;
+}
+
+#item {
+    display: block;
+    flex: 1;
+    margin: 6px;
+    height: 120px;
+    width: 160px;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.typePass {
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+.typePass:hover {
+    background: var(--lead-color-hover);
+    color: white;
+}
+
+#item h3 {
+    display: block;
+    margin: 10px auto;
+}
+
+h1, h2, h3 {
+    margin: 12px auto;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#confirmCart {
+    position: absolute;
+    height: 3em;
+    width: 100%;
+    border: 0;
+    border-top: 2px solid #bbbbbb;
+    border-radius: 0;
+    font-size: 1em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#confirmCart:hover {
+    background: var(--lead-color-hover);
+    color: white;
+    border: 4px solid var(--lead-color);
+}
