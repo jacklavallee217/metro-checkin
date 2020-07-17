@@ -16,8 +16,8 @@ const customerSchema = mongoose.Schema({
         privilege: String,
         membership: String
     },
-    purchaseHistory : {
-        purchases: [Purchase]
+    purchaseInfo : {
+        purchaseHistory: [Purchase]
     },
     itemCart : [Item]
 })

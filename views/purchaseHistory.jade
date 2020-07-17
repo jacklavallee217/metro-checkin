@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='stylesheet', href='/stylesheets/customer_profile.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway&display=swap', rel='stylesheet')
+    script(src='/javascripts/jquery.js', type='module' defer)
+    script(src='/javascripts/app.js', type='module' defer)
+    title Customer Search
+  body 
+    h1 #{customer.customerInfo.firstName} #{customer.customerInfo.lastName}
+    table#purchaseHistoryTable
+        caption Purchase History
+        colgroup
+            col(width='40%')
+            col(width='20%')
+            col(width='20%')
+            col(width='20%')
+        tr#tableHeaders 
+            th Date
+            th Purchase Type
+            th Total Price
+            th ----
+        tbody: each purchase, i in customer.purchaseInfo.purchaseHistory
+            tr(class='purchaseRow' id='purchase' + purchase._id)
+                th #{purchase.date}
+                th #{purchase.purchaseType}
+                th #{purchase.totalPrice}
+                th
+                    form#deleteItem(action='' method='post')
+                        input(class='cardInfo' type='submit' value='Card Info') 
+            tbody: each info, j in purchase.items    
+                tr(class='itemInfo info' + purchase._id )
+                    th #{info.itemName} 
+                    th #{info.itemType}
+                    th #{info.quantity} 
+                    th #{info.itemPrice} 
+
+
+    a(href='/customer/' + customer._id)
+        button.returnButton Return to Customer Screen

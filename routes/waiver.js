@@ -21,8 +21,8 @@ router.post('/', function (req, res, next) {
         privilege: 'None',
         membership: 'None'
       },
-      purchaseHistory : {
-        purchases: []
+      purchaseInfo : {
+        purchaseHistory: []
       },
       itemCart : []
   })
@@ -30,8 +30,7 @@ router.post('/', function (req, res, next) {
   MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
       if (err) throw err;
       var dbo = db.db('test');
-      console.log('reached');
-      dbo.collection('customers').insertOne(newWaiver, 
+      dbo.collection('waiverQueue').insertOne(newWaiver, 
           function(err, doc) {
               if (err) throw err;
               res.render('waiver', {

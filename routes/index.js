@@ -8,6 +8,11 @@ var url = 'mongodb://localhost:27017/test';
 var hasSearched = false; 
 var emptySearched = true;
 
+var passItems = [];
+var membershipItems = [];
+var foodItems = [];
+var gearItems = [];
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   MongoClient.connect(url, function(err, db) {
@@ -78,17 +83,40 @@ router.post('/search', function(req, res, next) {
   });
 });
 
+/* GET waiver queue page. */
+router.get('/waiverQueue', function(req, res, next) {
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db('test');
+    dbo.collection('waiverQueue').find({}).toArray( function(err, result) {
+      if (err) throw err;
+      res.render('waiverQueue', {
+        waivers: result
+      });
+    });
+  });
+});
+
 /* GET anonymous purchase page. */
 router.get('/anonymous/purchase', function(req, res, next) {
   var id = new ObjectID('5ef0fd6db151f75119a3fc34');
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db('test');
+    dbo.collection('passItems').find({}).sort({order_num: 1}).toArray(function(err, result) {
+      if (err) { throw err }
+      else {
+        for (i = 0; i < result.length; i++) {
+          passItems[i] = result[i];
+        }
+      }
+    });
     dbo.collection('customers').findOne({_id: id}, function(err, result) {
       if (err) throw err;
       console.log(result);
       res.render('purchase', {
-        customer: result
+        customer: result,
+        passItems: passItems
       });
     });
   });

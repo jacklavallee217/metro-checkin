@@ -31,19 +31,21 @@ app.use(session({
 mongoose.connect('mongodb://localhost:27017/test');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
 var customerRouter = require('./routes/customer');
 var purchaseRouter = require('./routes/purchase');
+var purchaseHistoryRouter = require('./routes/purchaseHistory');
 var waiverRouter = require('./routes/waiver');
+var waiverQueueRouter = require('./routes/waiverQueue');
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/search', searchRouter);
 app.use('/customer', customerRouter);
 app.use('/customer/purchase', purchaseRouter);
+app.use('/customer/purchaseHistory', purchaseHistoryRouter);
 app.use('/anonymous/purchase', purchaseRouter);
 app.use('/waiver', waiverRouter);
+app.use('/waiverQueue', waiverQueueRouter);
 
 
 

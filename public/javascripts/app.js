@@ -63,7 +63,32 @@
         }
     })
 
+    $(document).ready(function() {
+        $('#confirmCart').on('click', function() {
+            $('#purchaseBox').css('display', 'block');
+        })
+    });
+
+    $(document).ready(function() {
+        $('#backButton').on('click', function() {
+            $('#purchaseBox').css('display', 'none');
+        })
+    });
+
 /********************/
+
+// Purchase History
+
+
+    $(document).ready(function() {
+        $('.purchaseRow').on('click', function() {
+            var id = $(this).attr('id').substr(8);
+            $('.info' + id).css('display', 'table-row');
+        })
+    });
+
+/********************/
+
 
 // Waiver
 

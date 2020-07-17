@@ -8,6 +8,22 @@ html
     script(src='/javascripts/app.js', type='module' defer)
     title Customer Purchase
   body
+    #purchaseBox
+        button#backButton &#8592 Back to Purchases 
+        h1 Purchase Type:  
+        form(action='/customer/purchase/' + customer._id + '/confirmPurchase' method='post')
+            #purchaseTypeDiv
+                #debit       
+                    input(type='radio' name='purchaseType' value='Debit')
+                    label(for='debit') Debit
+                #credit
+                    input(type='radio' name='purchaseType' value='Credit')
+                    label(for='credit') Credit
+                #cash
+                    input(type='radio' name='purchaseType' value='Cash')
+                    label(for='cash') Cash
+
+            input(type='submit' value='Enter Purchase')
     #container
         #cartSide
             if customer.customerInfo.firstName != 'Anonymous'
@@ -28,11 +44,30 @@ html
                         th Quantity
                         th Price
                         th
+                    - var totalCartPrice = 0;
+                    tbody: each item, i in customer.itemCart
+                        - totalCartPrice += item.totalPrice
+                        tr
+                            if customer.itemCart != null
+                                th #{item.itemName}
+                                th 
+                                    form#updateQuantity(action='/customer/purchase/' + customer._id + '/updateQuantity' method='post')
+                                        input#quantity(name='quantity' value='' + item.quantity type='number' min='1' max='16')
+
+                                        input.hidden#itemID(type='hidden' name='itemID' value='' + item._id)
+                                        input.hidden#itemName(type='hidden' name='itemName' value='' + item.itemName)
+                                        input.hidden#itemPrice(type='hidden' name='itemPrice' value='' + item.itemPrice)
+                                        input.hidden#itemType(type='hidden' name='itemType' value='' + item.itemType)
+                                th $#{item.totalPrice}
+                                th 
+                                    form#deleteItem(action='/customer/purchase/' + customer._id + '/deleteItem' method='post')
+                                        input.hidden#itemID(name='itemID' value='' + item._id)
+                                        input(class='type' + item.itemType type='submit' value='Delete')
                     tfoot
                     tr
                         th
-                        th Total: 
-                        th#totalPrice
+                        th Total:
+                        th#totalPrice $#{totalCartPrice}
                         th
             button#confirmCart Enter Purchase
         .tab
@@ -42,13 +77,13 @@ html
             button#gearTab.tabLinks Gear
         #tabSide
             #passes.tabContent: each passItem, i in passItems
-                form#item(action='/customer/purchase/' + customer._id method='post')
+                form#item(action='/customer/purchase/' + customer._id + '/addToCart' method='post')
                     h3 #{passItem.itemName}   
                     h3 $#{passItem.itemPrice}
-                    input.hidden(name='itemID' value='' + passItem._id)
-                    input.hidden(name='itemName' value='' + passItem.itemName)
-                    input.hidden(name='itemPrice' value='' + passItem.itemPrice)
-                    input.hidden(name='itemType' value='' + passItem.itemType)
+                    input.hidden#passItemID(name='itemID' value='' + passItem._id)
+                    input.hidden#passItemName(name='itemName' value='' + passItem.itemName)
+                    input.hidden#passItemPrice(name='itemPrice' value='' + passItem.itemPrice)
+                    input.hidden#passItemType(name='itemType' value='' + passItem.itemType)
                     input(class='type' + passItem.itemType type='submit' value='Add to cart')
             #memberships.tabContent
             #food.tabContent

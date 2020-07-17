@@ -45,7 +45,8 @@ html
         a(href='/customer/purchase/' + customer._id)
           button#enterPurchases(name='Enter Purchases', type='button') Enter Purchases
         .infoButtons
-          button#purchaseHistory(name='Purchase History', type='button') Purchase History
+          a(href='/customer/purchaseHistory/' + customer._id)
+            button#purchaseHistory(name='Purchase History', type='button') Purchase History
           button#enterCardInfo(name='Enter Card Info', type='button') Enter Card Information
       #deleteAccountDiv
         button#deleteAccountButton(name='Delete Account', type='button') Delete Account

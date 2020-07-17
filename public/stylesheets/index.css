@@ -166,6 +166,27 @@ button[name=purchaseButton]:hover {
   border-radius: none;
 }
 
+/***** Waiver Queue *****/
+
+#formDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+#formDiv form {
+  display: flex;
+  flex: 1;
+}
+
+#formDiv form input {
+  flex: 1;
+  border-radius: 0;
+}
+
+#formDiv * {
+  color: black;
+}
+
 /***** Waiver *****/
 
 #waiverContainer {

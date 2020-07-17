@@ -241,3 +241,30 @@ body {
 .active {
     color: white;
 }
+
+/***** Purchase History *****/
+
+#purchaseHistoryTable {
+    width: 80%;
+    margin: 2em;
+}
+
+#tableHeaders th {
+    background: #aaaaaa;
+}
+
+.purchaseRow {
+    background: #eeeeee;
+}
+
+#purchaseHistoryTable th {
+    padding: 8px;
+}
+
+.purchaseRow {
+    cursor: pointer;
+}
+
+.itemInfo {
+    display: none;
+}

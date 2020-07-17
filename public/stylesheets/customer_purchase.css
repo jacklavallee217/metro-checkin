@@ -2,6 +2,103 @@ html {
     overflow: hidden;
 }
 
+#purchaseBox {
+    display: none;
+    z-index: 3;
+    background: rgba(0, 0, 0, .9);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#backButton {
+    width: 30%;
+    font-size: 1.5em;
+    color: white;
+    border: 2px solid white;
+    border-top: 0;
+    border-left: 0;
+    border-radius: 0;
+    background: none;
+}
+
+#backButton:hover {
+    background: var(--none-color-hover);
+}
+
+#purchaseBox h1 {
+    color: white;
+    text-decoration: none;
+    margin: 2em auto;
+}
+
+#purchaseBox form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#purchaseTypeDiv {
+    display: flex;
+    width: 50%;
+    margin: 2em auto;
+}
+
+#purchaseTypeDiv div {
+    flex: 1;
+}
+
+#purchaseTypeDiv input[type='radio'] {
+    outline: none;
+    margin: auto;
+    transform: scale(2);
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#purchaseTypeDiv input[value='Debit']:checked {
+    background-color: var(--top-color-hover);
+}
+
+#purchaseTypeDiv input[value='Credit']:checked {
+    background-color: var(--bould-color-hover);
+}
+
+#purchaseTypeDiv input[value='Cash']:checked {
+    background-color: var(--lead-color-hover);
+}
+
+#purchaseTypeDiv label {
+    margin-left: 1em;
+    font-size: 2em;
+    color: white;
+}
+
+#purchaseBox input[type='submit'] {
+    margin: 1em auto;
+    width: 30%;
+    font-size: 2em;
+    color: white;
+    border: 2px solid white;
+    background: none;
+}
+
+#purchaseBox input[type='submit']:hover {
+    background: var(--lead-color-hover);
+}
+
+
 #container {
     display: flex;
     width: 100%;
@@ -65,7 +162,7 @@ tfoot tr th {
 .tab {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 auto 0 2em;
 }
 
 .tabLinks {

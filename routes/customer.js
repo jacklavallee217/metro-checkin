@@ -64,7 +64,6 @@ router.get('/purchase/:id', function(req, res, next) {
       else {
         for (i = 0; i < result.length; i++) {
           passItems[i] = result[i];
-          console.log(passItems[i]);
         }
       }
     });
@@ -73,6 +72,22 @@ router.get('/purchase/:id', function(req, res, next) {
       res.render('purchase', {
         customer: result,
         passItems: passItems
+      });
+    });
+  });
+});
+
+/* GET purchase history page */
+router.get('/purchaseHistory/:id', function(req, res, next) {
+  var id = new ObjectID(req.params.id);
+  MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
+    if (err) throw err;
+    var dbo = db.db('test');
+    dbo.collection('customers').findOne({_id: id}, function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.render('purchaseHistory', {
+        customer: result
       });
     });
   });

@@ -19,7 +19,8 @@ html
           input#firstSearch.inputs(name='firstSearch', placeholder='First Name')
           input#lastSearch.inputs(name='lastSearch', placeholder='Last Name')
           button#nameSearch.inputs(name='nameSearch', type='submit') Search
-        button#onlineWaivers(name='onlineWaivers', type='button') Online Waivers
+        a(href='/waiverQueue')
+          button#onlineWaivers(name='onlineWaivers', type='button') Online Waivers
         a(href='/anonymous/purchase/') 
           button#purchaseButton(name='purchaseButton', type='button') Anonymous Purchase
       #customerSide
