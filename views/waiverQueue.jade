@@ -12,7 +12,7 @@ html
     #search
         h1 Online Waivers
         #searchResults: each waiver, i in waivers
-            .waiver(class='cust priv' + waiver.customerInfo.privilege)
+            .waiver
                 .cust_prof
                     h2 #{waiver.customerInfo.firstName} #{waiver.customerInfo.lastName}
                     h3 Age: #{waiver.customerInfo.age}

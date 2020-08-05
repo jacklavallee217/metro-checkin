@@ -14,7 +14,17 @@ const customerSchema = mongoose.Schema({
         emergencyNumber: Number,
         image: String,
         privilege: String,
-        membership: String
+        membershipInfo : {
+            isMember: Boolean,
+            membershipType: String,
+            membershipStart: Date,
+            membershipEnd: Date,
+            daysLeft: Number
+        }
+    },
+    address : {
+        billingAddress: String,
+        zipCode: Number
     },
     purchaseInfo : {
         purchaseHistory: [Purchase]

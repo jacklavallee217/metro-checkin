@@ -146,7 +146,7 @@ button[name=purchaseButton]:hover {
 }
 
 #searchResults {
-  margin: 32px auto;
+  margin: 3em;
   display: flex;
   flex-wrap: wrap;
 }
@@ -163,7 +163,7 @@ button[name=purchaseButton]:hover {
   height: 60px;
   font-size: 1.5em;
   text-align: center;
-  border-radius: none;
+  border-radius: 0;
 }
 
 /***** Waiver Queue *****/
@@ -185,6 +185,32 @@ button[name=purchaseButton]:hover {
 
 #formDiv * {
   color: black;
+}
+
+#formDiv input[type='submit'] {
+  font-size: 1.5em;
+  border: 0;
+}
+
+#formDiv input[value='Add'] {
+  border-top-right-radius: 6px;
+  border-left: 1px solid #777777;
+  border-bottom: 1px solid #777777;
+}
+
+#formDiv input[value='Delete'] {
+  border-bottom-right-radius: 6px;
+  border-left: 1px solid #777777;
+}
+
+#formDiv input[value='Add']:hover {
+  background: var(--lead-color-hover);
+  color: white;
+}
+
+#formDiv input[value='Delete']:hover {
+  background: var(--none-color-hover);
+  color: white;
 }
 
 /***** Waiver *****/

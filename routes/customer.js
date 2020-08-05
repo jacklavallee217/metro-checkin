@@ -4,6 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 const Customer = require('../models/Customer.model');
 const Item = require('../models/Item.model');
+const CardInfo = require('../models/CardInfo.model');
 
 var passItems = [];
 var membershipItems = [];
@@ -52,6 +53,22 @@ router.post('/:id/customerAdmitted', function(req, res, next) {
   });
 });
 
+/* GET personal info page. */
+router.get('/personalInfo/:id', function(req, res, next) {
+  var id = new ObjectID(req.params.id);
+  MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
+    if (err) throw err;
+    var dbo = db.db('test');
+    dbo.collection('customers').findOne({_id: id}, function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.render('personalInfo', {
+        customer: result
+      });
+    });
+  });
+})
+
 
 /* GET purchase page. */
 router.get('/purchase/:id', function(req, res, next) {
@@ -92,5 +109,29 @@ router.get('/purchaseHistory/:id', function(req, res, next) {
     });
   });
 });
+
+/* POST card info */ 
+router.post('/:id/enterCardInfo', function(req, res, next) {
+  var cardInfo = new CardInfo({
+    cardFirstName: req.body.cardFirstName,
+    cardLastName: req.body.cardLastName,
+    cardNumber: req.body.cardNumber,
+    cardSecurity: req.body.cardSecurity,
+    cardExpiration: req.body.cardExpiration
+  })
+
+  var id = new ObjectID(req.params.id);
+  MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
+    if (err) throw err;
+    var dbo = db.db('test');
+    var query = {_id: id};
+    var update = { $set: {'purchaseInfo.cardInfo': cardInfo}};
+
+    console.log(cardInfo);
+
+    dbo.collection('customers').updateOne(query, update);
+    res.redirect('/customer/' + id);
+  });
+})
 
 module.exports = router;

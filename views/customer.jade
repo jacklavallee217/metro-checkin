@@ -8,6 +8,34 @@ html
     script(src='/javascripts/app.js', type='module' defer)
     title Customer Profile
   body
+    #cardInfoBox
+      button#customerBackButton &#8592 Back to Purchases
+      h1 Enter Card Information
+      form#cardInfoForm(action='/customer/' + customer._id + '/enterCardInfo' method='post')
+        #cardInfoDiv
+          #cardName
+            .formPair
+              label(for='cardFirstName') First Name
+              input(type='text' name='cardFirstName')
+            
+            .formPair
+              label(for='cardLastName') Last Name
+              input(type='text' name='cardLastName')
+
+          #cardInfo
+            .formPair
+              label(for='cardNumber') Card Number
+              input(type='text' name='cardNumber')
+
+            .formPair
+              label(for='cardSecurity') Security Code
+              input(type='text' name='cardSecurity')
+
+            .formPair
+              label(for='cardExpiration') Expiration Date
+              input(type='month' name='cardExpiration')
+
+          input(type='submit' value='Enter Info')
     div(class='customerHeader ' + customer.customerInfo.privilege) 
       #headerContainer
         #headerInfo
@@ -39,8 +67,9 @@ html
               option(value='Lead', name='Lead') Lead
           textarea#commentEntry(rows='1', cols='20', name='notes', placeholder='Enter comment here...')
           input#infoSubmit(type='submit')
-        .infoButtons  
-          button#personalInfo(name='Personal Info', type='button') Edit Personal Information
+        .infoButtons
+          a(href='/customer/personalInfo/' + customer._id)
+            button#personalInfo(name='Personal Info', type='button') Edit Personal Information
       #purchasesDiv
         a(href='/customer/purchase/' + customer._id)
           button#enterPurchases(name='Enter Purchases', type='button') Enter Purchases

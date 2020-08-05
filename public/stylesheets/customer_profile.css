@@ -15,6 +15,68 @@ body {
     position: relative;
 }
 
+#cardInfoBox {
+    display: none;
+    z-index: 3;
+    background: rgba(0, 0, 0, .9);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#customerBackButton {
+    width: 30%;
+    font-size: 1.5em;
+    color: white;
+    border: 2px solid white;
+    border-top: 0;
+    border-left: 0;
+    border-radius: 0;
+    background: none;
+}
+
+#customerBackButton:hover {
+    background: var(--none-color-hover);
+}
+
+#cardInfoBox h1 {
+    color: white;
+}
+
+#cardInfoDiv {
+    width: 50%;
+    margin: 3em auto;
+}
+
+#cardName, #cardInfo {
+    display: flex;
+    margin: 2em auto;
+}
+
+.formPair {
+    flex: 1;
+    text-align: center;
+}
+
+#cardInfoBox label {
+    color: white;
+    margin-right: 4px;
+}
+
+#cardInfoBox input[type='submit'] {
+    display: block;
+    margin: 1em auto;
+    width: 50%;
+    font-size: 2em;
+    color: white;
+    border: 2px solid white;
+    background: none;
+}
+
+#cardInfoBox input[type='submit']:hover {
+    background: var(--lead-color-hover);
+}
+
 #headerContainer {
     display: flex;
     width: 70%;
@@ -220,11 +282,16 @@ body {
     
 }
 
-.infoButtons button {
+#enterCardInfo, #personalInfo, #purchaseHistory  {
     margin: 0 .5em;
     flex: 1;
     font-size: 1.2em;
     padding: 8px;
+}
+
+.infoButtons a {
+    display: flex;
+    flex: 1;
 }
 
 #accountDisclaimer {
@@ -246,7 +313,7 @@ body {
 
 #purchaseHistoryTable {
     width: 80%;
-    margin: 2em;
+    margin: 2em auto;
 }
 
 #tableHeaders th {

@@ -27,4 +27,21 @@ router.post('/addWaiver:id', function(req, res, next) {
     })
 })
 
+router.post('/deleteWaiver:id', function(req, res, next) {
+    var id = new ObjectID(req.params.id);
+    console.log(id);
+    MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
+        if (err) throw err;
+        var dbo = db.db('test');
+        var waiverQueue = dbo.collection('waiverQueue');
+
+        waiverQueue.findOne({_id: id}, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            waiverQueue.findOneAndDelete({_id: id});
+            res.redirect('/');
+        })
+    })
+})
+
 module.exports = router;

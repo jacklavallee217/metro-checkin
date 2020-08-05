@@ -21,6 +21,10 @@ router.post('/', function (req, res, next) {
         privilege: 'None',
         membership: 'None'
       },
+      address : {
+        billingAddress: req.body.wAddress,
+        zipCode: req.body.wZipCode
+      },
       purchaseInfo : {
         purchaseHistory: []
       },

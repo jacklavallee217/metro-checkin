@@ -40,6 +40,18 @@
         })
     })
 
+    $(document).ready(function() {
+        $('#enterCardInfo').on('click', function() {
+            $('#cardInfoBox').css('display', 'block');
+        })
+    });
+
+    $(document).ready(function() {
+        $('#customerBackButton').on('click', function() {
+            $('#cardInfoBox').css('display', 'none');
+        })
+    });
+
 /********************/
 
 // Customer Purchase

@@ -78,6 +78,14 @@
         background-color: var(--lead-color);
       } 
 
+      .waiver {
+        border-radius: 6px;
+        display: flex;
+        border: 2px solid #777777;
+        transition: .15s;
+        background-color: var(--bould-color);
+      }
+
       .privLead, .Lead, .privLead.active {
         background-color: var(--lead-color);
       }
@@ -146,6 +154,10 @@
         padding: 6px;
         background-color: white;
         border-radius: 6px;
+      }
+
+      .cust_image {
+        margin-right: 12px;
       }
       
       #img {

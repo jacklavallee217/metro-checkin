@@ -5,8 +5,7 @@ const cardinfoSchema = mongoose.Schema({
     cardLastName: String,
     cardNumber: Number,
     cardSecurity: Number,
-    cardExpirationMonth: Number,
-    cardExpirationYear: Number
+    cardExpiration: String
 })
 
 module.exports = mongoose.model('CardInfo', cardinfoSchema);
